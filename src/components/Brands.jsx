@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
@@ -13,7 +14,8 @@ const Brands = () => {
     };
     load();
   }, []);
-  console.log(brands);
+  // console.log(brands);
+
   return (
     <div className=" ">
       <div className="max-w-7xl mx-auto my-10 px-4">
@@ -22,12 +24,14 @@ const Brands = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 ">
           {brands.map((brand) => (
-            <div className="border border-red-500" key={brand.id}>
-              <img src={brand.brand_image_url} alt="" />
-              <h2 className="text-2xl font-bold text-center">
-                {brand.brand_name}
-              </h2>
-            </div>
+            <Link key={brand.id} to={`/brand/${brand.brand_name}`}>
+              <div className="border border-red-500">
+                <img src={brand.brand_image_url} alt="" />
+                <h2 className="text-2xl font-bold text-center">
+                  {brand.brand_name}
+                </h2>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
