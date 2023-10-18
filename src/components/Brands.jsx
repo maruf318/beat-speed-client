@@ -27,7 +27,7 @@ const Brands = () => {
             <Link key={brand.id} to={`/brand/${brand.brand_name}`}>
               <div className="border border-red-500">
                 <img
-                  className="flex mx-auto"
+                  className="flex mx-auto h-52"
                   src={brand.brand_image_url}
                   alt=""
                 />

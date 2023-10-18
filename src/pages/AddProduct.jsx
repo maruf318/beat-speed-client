@@ -1,4 +1,17 @@
+import { toast } from "react-toastify";
+
 const AddProduct = () => {
+  const notifySuccess = () =>
+    toast.success("Updated the Product Successfully", {
+      position: "top-center",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   const handleAdd = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -30,7 +43,7 @@ const AddProduct = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          alert(" car added succesfully");
+          notifySuccess();
         }
       });
   };

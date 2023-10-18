@@ -1,8 +1,20 @@
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Update = () => {
   const data = useLoaderData();
   console.log(data);
+  const notifySuccess = () =>
+    toast.success("Updated the Product Successfully", {
+      position: "top-center",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -27,7 +39,8 @@ const Update = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          alert("Updated successfully");
+          // alert("Updated successfully");
+          notifySuccess();
         }
       });
   };
