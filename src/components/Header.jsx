@@ -1,8 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import pic from "../assets/iconcar.png";
 import icon from "../assets/icons8-user.gif";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
+  const { logOut, user } = useContext(AuthContext);
+  console.log(user);
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
   const navLinks = (
     <>
       <li>
@@ -20,7 +27,7 @@ const Header = () => {
           className={
             " border-t-4 hover:bg-white rounded-lg px-2 py-4 bg-black text-white font-bold"
           }
-          to={"/addProduct"}
+          to={user ? "/addproduct" : "/login"}
         >
           Add Product
         </NavLink>
@@ -30,7 +37,7 @@ const Header = () => {
           className={
             " border-t-4 hover:bg-white rounded-lg px-2 py-4 bg-black text-white font-bold"
           }
-          to={"/myCart"}
+          to={user ? "/mycart" : "/login"}
         >
           My Cart
         </NavLink>
@@ -78,12 +85,26 @@ const Header = () => {
         <div className="navbar-end">
           <div className="avatar">
             <div className="w-12 rounded-full">
-              <img src={icon} />
+              {/* <img src={icon} /> */}
+              {user?.photoURL ? (
+                <img src={user.photoURL} />
+              ) : (
+                <img src={icon} />
+              )}
             </div>
           </div>
-          <Link to={"/login"}>
+          {/* <Link to={"/login"}>
             <a className="btn bg-black text-white">Sign In</a>
-          </Link>
+          </Link> */}
+          {user ? (
+            <button onClick={handleLogOut} className="btn bg-black text-white">
+              LOGOUT
+            </button>
+          ) : (
+            <Link to={"/login"}>
+              <a className="btn bg-black text-white">Sign In</a>
+            </Link>
+          )}
         </div>
       </div>
     </div>

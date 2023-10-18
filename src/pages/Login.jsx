@@ -6,7 +6,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate(null);
   const notifySuccess = () =>
     toast.success("Logged in Successful", {
@@ -45,6 +45,25 @@ const Login = () => {
         notifyError(error.message);
       });
   };
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+        // swal(
+        //   "Google Login",
+        //   "You are one step away of your events ",
+        //   "success"
+        // );
+        notifySuccess();
+        navigate("/");
+      })
+      .catch((error) => {
+        // setErrorText(error.message);
+        // swal("Error", errorText, "error");
+        notifyError(error.message);
+      });
+  };
+
   return (
     <div>
       <h1 className="text-5xl font-bold text-center md:my-10">Login now!</h1>
@@ -102,6 +121,7 @@ const Login = () => {
               </div>
             </form>
             <button
+              onClick={handleGoogleSignIn}
               className="btn bg-red-200
              w-1/2 mx-auto"
             >
