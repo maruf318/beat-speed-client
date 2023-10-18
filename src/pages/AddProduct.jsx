@@ -9,14 +9,30 @@ const AddProduct = () => {
     const rating = form.rating.value;
 
     const description = form.description.value;
-    const ty = form.ty.value;
-    console.log(name, brand, image, price, rating, description, ty);
+    const type = form.type.value;
+    // console.log(name, brand, image, price, rating, description, ty);
     // console.log(typeof rating);
     // const ratingfloat = parseFloat(rating);
     // console.log(typeof ratingfloat);
-    if (rating < 1 || rating > 5) {
-      return alert("please enter a Rating between 1 to 5");
-    }
+    // if (rating < 1 || rating > 5) {
+    //   return alert("please enter a Rating between 1 to 5");
+    // }
+    const newCar = { name, brand, image, price, rating, description, type };
+    // console.log(newCar);
+    fetch("http://localhost:5000/cars", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCar),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          alert(" car added succesfully");
+        }
+      });
   };
   return (
     <div className="max-w-7xl mx-auto">
@@ -47,14 +63,18 @@ const AddProduct = () => {
             >
               Brand Name
             </label>
-            <input
-              type="text"
-              id="brand_name"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Brand Name"
+            <select
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-5000"
               name="brand"
-              required
-            />
+              id=""
+            >
+              <option value="TOYOTA">TOYOTA</option>
+              <option value="FORD">FORD</option>
+              <option value="BMW">BMW</option>
+              <option value="MERCEDES">MERCEDES</option>
+              <option value="TESLA">TESLA</option>
+              <option value="HONDA">HONDA</option>
+            </select>
           </div>
 
           <div>
@@ -91,17 +111,21 @@ const AddProduct = () => {
             /> */}
             <select
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-5000"
-              name="ty"
+              name="type"
               id=""
             >
-              <option value="man">Luxury Cars</option>
-              <option value="women">Compact Cars</option>
-              <option value="women">Off-Road and Adventure Vehicles</option>
-              <option value="women">Electric and Hybrid Cars</option>
-              <option value="women">Sports Cars</option>
-              <option value="women">Trucks</option>
-              <option value="women">Basic Cars</option>
-              <option value="women">Others</option>
+              <option value="Luxury Cars">Luxury Cars</option>
+              <option value="Compact Cars">Compact Cars</option>
+              <option value="Off-Road and Adventure Vehicles">
+                Off-Road and Adventure Vehicles
+              </option>
+              <option value="Electric and Hybrid Cars">
+                Electric and Hybrid Cars
+              </option>
+              <option value="Sports Cars">Sports Cars</option>
+              <option value="Trucks">Trucks</option>
+              <option value="Basic Cars">Basic Cars</option>
+              <option value="Others">Others</option>
             </select>
           </div>
         </div>
@@ -135,6 +159,8 @@ const AddProduct = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="•• out of 5"
             name="rating"
+            min="1"
+            max="5"
             required
           />
         </div>

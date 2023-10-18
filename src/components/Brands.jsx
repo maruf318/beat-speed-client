@@ -26,7 +26,11 @@ const Brands = () => {
           {brands.map((brand) => (
             <Link key={brand.id} to={`/brand/${brand.brand_name}`}>
               <div className="border border-red-500">
-                <img src={brand.brand_image_url} alt="" />
+                <img
+                  className="flex mx-auto"
+                  src={brand.brand_image_url}
+                  alt=""
+                />
                 <h2 className="text-2xl font-bold text-center">
                   {brand.brand_name}
                 </h2>
