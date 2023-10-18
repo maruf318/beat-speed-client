@@ -1,8 +1,49 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Details = () => {
   const loadedCar = useLoaderData();
   // console.log(loadedCar.brand);
+  const { user } = useContext(AuthContext);
+  // console.log(user.email);
+  const cart = {
+    email: user.email,
+    name: loadedCar.name,
+    image: loadedCar.image,
+    price: loadedCar.price,
+  };
+  console.log(cart);
+  const handleCart = () => {
+    fetch("http://localhost:5000/cart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cart),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          alert("Added to cart");
+        }
+      });
+  };
+  // fetch("http://localhost:5000/cart", {
+  //   method: "POST",
+  //   headers: {
+  //     "content-type": "application/json",
+  //   },
+  //   body: JSON.stringify(cart),
+  // })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //     if (data.insertedId) {
+  //       alert("Added to cart");
+  //     }
+  //   });
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -13,27 +54,36 @@ const Details = () => {
       >
         JUST GRAB AND GO
       </h2>
-      <div className="flex p-2 gap-4 flex-col md:flex-row">
-        <div className="flex-1 h-full">
-          <img className="h-full" src={loadedCar.image} alt="" />
+      <div className="flex h-full mx-auto border border-red-800 justify-center items-center  p-2 gap-4 flex-col lg:flex-row">
+        <div className="flex-1  lg:h-full">
+          <img className="lg:h-full" src={loadedCar.image} alt="" />
         </div>
         <div className="flex-1 space-y-2 md:space-y-4">
-          <h2 className="text-5xl font-extrabold">{loadedCar.brand}</h2>
-          <h2 className="text-4xl font-bold">Name: {loadedCar.name}</h2>
-          <h2 className="text-2xl">Price: ${loadedCar.price}</h2>
-          <h2 className="font-bold">Car Type: {loadedCar.type}</h2>
-          <h2 className="text-xl text-black">
-            Description: {loadedCar.description}
+          <h2 className="text-5xl text-center font-extrabold">
+            {loadedCar.brand}
           </h2>
-          <button className="btn btn-ghost bg-red-800 text-white w-full">
+          <h2 className="text-4xl text-center font-bold">
+            Name: {loadedCar.name}
+          </h2>
+          <h2 className="text-2xl text-center">Price: ${loadedCar.price}</h2>
+          <h2 className="font-bold text-center">Car Type: {loadedCar.type}</h2>
+          <button
+            onClick={handleCart}
+            className="btn  btn-ghost bg-red-800 text-white w-full"
+          >
             Buy Now
           </button>
         </div>
       </div>
+      <h2 className="text-xl text-black">
+        Description: {loadedCar.description}
+      </h2>
+
       {/* newslater */}
       <h2 className="mt-20 text-center text-3xl font-bold underline">
         Subscribe Us
       </h2>
+
       <div>
         <div className="mx-4 py-8">
           <div className="w-full  relative flex items-center justify-center">

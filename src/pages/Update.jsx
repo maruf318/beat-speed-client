@@ -27,7 +27,7 @@ const Update = () => {
     const description = form.description.value;
     const type = form.type.value;
     const updatedCar = { name, brand, image, price, rating, description, type };
-    console.log(updatedCar);
+    // console.log(updatedCar);
     fetch(`http://localhost:5000/car/${data._id}`, {
       method: "PUT",
       headers: {
@@ -46,9 +46,11 @@ const Update = () => {
   };
   return (
     <div className="max-w-7xl mx-auto">
-      <h2>This is update page: {data.name}</h2>
+      <h2 className="text-center text-3xl font-bold my-10">
+        Update: {data.name}
+      </h2>
       <div>
-        <form onSubmit={handleUpdate} className="p-4">
+        <form onSubmit={handleUpdate} className="p-4 mb-14">
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <label
@@ -221,7 +223,7 @@ const Update = () => {
           </div>
           <button
             type="submit"
-            className="flex mx-auto text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="flex mx-auto text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Update Product
           </button>
