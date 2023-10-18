@@ -82,29 +82,43 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end">
-          <div className="avatar">
-            <div className="w-12 rounded-full">
-              {/* <img src={icon} /> */}
-              {user?.photoURL ? (
-                <img src={user.photoURL} />
-              ) : (
-                <img src={icon} />
-              )}
+        <div className="navbar-end grid space-y-2 items-center content-center">
+          <div>
+            {user?.displayName ? (
+              <p className="text-black text-center">
+                Welcome, {user.displayName}
+              </p>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="justify-center space-x-3 items-center mx-auto flex">
+            <div className="avatar">
+              <div className="w-12 rounded-full">
+                {/* <img src={icon} /> */}
+                {user?.photoURL ? (
+                  <img src={user.photoURL} />
+                ) : (
+                  <img src={icon} />
+                )}
+              </div>
             </div>
+            {user ? (
+              <button
+                onClick={handleLogOut}
+                className="btn bg-black text-white"
+              >
+                LOGOUT
+              </button>
+            ) : (
+              <Link to={"/login"}>
+                <a className="btn bg-black text-white">Sign In</a>
+              </Link>
+            )}
           </div>
           {/* <Link to={"/login"}>
             <a className="btn bg-black text-white">Sign In</a>
           </Link> */}
-          {user ? (
-            <button onClick={handleLogOut} className="btn bg-black text-white">
-              LOGOUT
-            </button>
-          ) : (
-            <Link to={"/login"}>
-              <a className="btn bg-black text-white">Sign In</a>
-            </Link>
-          )}
         </div>
       </div>
     </div>
