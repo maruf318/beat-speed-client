@@ -7,9 +7,16 @@ const AddProduct = () => {
     const image = form.image.value;
     const price = form.price.value;
     const rating = form.rating.value;
-    const type = form.type.value;
+
     const description = form.description.value;
-    console.log(name, brand, image, price, rating, type, description);
+    const ty = form.ty.value;
+    console.log(name, brand, image, price, rating, description, ty);
+    // console.log(typeof rating);
+    // const ratingfloat = parseFloat(rating);
+    // console.log(typeof ratingfloat);
+    if (rating < 1 || rating > 5) {
+      return alert("please enter a Rating between 1 to 5");
+    }
   };
   return (
     <div className="max-w-7xl mx-auto">
@@ -52,7 +59,7 @@ const AddProduct = () => {
 
           <div>
             <label
-              // for="website"
+              // for="image"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Image URL
@@ -68,25 +75,39 @@ const AddProduct = () => {
           </div>
           <div>
             <label
-              // for="visitors"
+              // for="type"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Type
             </label>
 
-            <input
+            {/* <input
               type="text"
               id="type"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Type"
               name="Type"
               required
-            />
+            /> */}
+            <select
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-5000"
+              name="ty"
+              id=""
+            >
+              <option value="man">Luxury Cars</option>
+              <option value="women">Compact Cars</option>
+              <option value="women">Off-Road and Adventure Vehicles</option>
+              <option value="women">Electric and Hybrid Cars</option>
+              <option value="women">Sports Cars</option>
+              <option value="women">Trucks</option>
+              <option value="women">Basic Cars</option>
+              <option value="women">Others</option>
+            </select>
           </div>
         </div>
         <div className="mb-6">
           <label
-            // for="email"
+            // for="price"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Price
@@ -100,6 +121,7 @@ const AddProduct = () => {
             required
           />
         </div>
+
         <div className="mb-6">
           <label
             // for="rating"
