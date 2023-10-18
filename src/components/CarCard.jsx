@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 const CarCard = ({ car }) => {
-  const { brand, description, image, name, price, rating, type } = car || {};
+  const { brand, description, image, name, price, rating, type, _id } =
+    car || {};
   return (
     <div>
       <div className="card lg:h-[350px] lg:card-side bg-base-100 shadow-xl">
@@ -13,9 +16,11 @@ const CarCard = ({ car }) => {
           <p>Price: ${price}</p>
           <p>Type: {type}</p>
           <div className="card-actions flex">
-            <button className="p-3 rounded hover:bg-red-800 bg-black text-white">
-              Details
-            </button>
+            <Link to={`/car/${_id}`}>
+              <button className="p-3 rounded hover:bg-red-800 bg-black text-white">
+                Details
+              </button>
+            </Link>
             <button className=" p-3 rounded hover:bg-red-800 bg-red-950 text-white">
               Update
             </button>
