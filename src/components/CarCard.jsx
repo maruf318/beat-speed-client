@@ -21,9 +21,11 @@ const CarCard = ({ car }) => {
                 Details
               </button>
             </Link>
-            <button className=" p-3 rounded hover:bg-red-800 bg-red-950 text-white">
-              Update
-            </button>
+            <Link to={`/update/${_id}`}>
+              <button className=" p-3 rounded hover:bg-red-800 bg-red-950 text-white">
+                Update
+              </button>
+            </Link>
           </div>
         </div>
       </div>

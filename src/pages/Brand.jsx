@@ -67,7 +67,7 @@ const Brand = () => {
         </div>
       </div>
       <h2 className="text-3xl text-center font-bold my-10">Brand:{name}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {filterCar.map((car) => (
           <CarCard key={car._id} car={car}></CarCard>
         ))}
