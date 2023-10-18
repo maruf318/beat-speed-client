@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import animation from "../assets/Stuck at Home - To Do List.png";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   const { logIn, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate(null);
+  const location = useLocation();
   const notifySuccess = () =>
     toast.success("Logged in Successful", {
       position: "top-center",
@@ -38,7 +39,7 @@ const Login = () => {
     logIn(email, password)
       .then(() => {
         notifySuccess();
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.error(error);
@@ -55,7 +56,7 @@ const Login = () => {
         //   "success"
         // );
         notifySuccess();
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         // setErrorText(error.message);
