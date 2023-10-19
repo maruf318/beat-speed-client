@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { FaStar } from "react-icons/fa";
 
 const CarCard = ({ car }) => {
   const { brand, image, name, price, rating, type, _id } = car || {};
@@ -11,8 +12,11 @@ const CarCard = ({ car }) => {
         </figure>
         <div className="card-body lg:w-2/5">
           <h2 className="card-title text-red-800">{name}</h2>
-          <h2 className="card-title">Brand Name: {brand}</h2>
-          <p>Rating: {rating} out of 5</p>
+          <h2 className="card-title">Brand: {brand}</h2>
+          <hr />
+          <p className="flex items-center text-lg">
+            Rating: {rating} <FaStar></FaStar>
+          </p>
           <p>Price: ${price}</p>
           <p>Type: {type}</p>
           <div className="card-actions flex mx-auto">
