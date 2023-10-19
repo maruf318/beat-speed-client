@@ -67,8 +67,10 @@ const Login = () => {
 
   return (
     <div>
-      <h1 className="text-5xl font-bold text-center md:my-10">Login now!</h1>
-      <p className="py-6 text-center md: my-5">
+      <h1 className="text-5xl font-bold text-center text-gray-500 md:my-10">
+        Login now!
+      </h1>
+      <p className="py-6 text-center text-gray-500 md: my-5">
         Welcome back! Log in to continue your journey and access your
         personalized experience.
       </p>
