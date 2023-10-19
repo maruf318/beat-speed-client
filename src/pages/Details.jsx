@@ -28,13 +28,16 @@ const Details = () => {
   };
   console.log(cart);
   const handleCart = () => {
-    fetch("http://localhost:5000/cart", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(cart),
-    })
+    fetch(
+      "https://beat-speed-server-oneni1put-maruf-hossains-projects-1d89c107.vercel.app/cart",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cart),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -45,7 +48,7 @@ const Details = () => {
         }
       });
   };
-  // fetch("http://localhost:5000/cart", {
+  // fetch("https://beat-speed-server-oneni1put-maruf-hossains-projects-1d89c107.vercel.app/cart", {
   //   method: "POST",
   //   headers: {
   //     "content-type": "application/json",

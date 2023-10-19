@@ -28,13 +28,16 @@ const Update = () => {
     const type = form.type.value;
     const updatedCar = { name, brand, image, price, rating, description, type };
     // console.log(updatedCar);
-    fetch(`http://localhost:5000/car/${data._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedCar),
-    })
+    fetch(
+      `https://beat-speed-server-oneni1put-maruf-hossains-projects-1d89c107.vercel.app/car/${data._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedCar),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -223,7 +226,7 @@ const Update = () => {
           </div>
           <button
             type="submit"
-            className="flex mx-auto text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="flex mx-auto text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-12 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Update Product
           </button>

@@ -1,14 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import pic from "../assets/iconcar.png";
 import icon from "../assets/icons8-user.gif";
-import { useContext } from "react";
+import { BsToggleOff, BsToggleOn } from "react-icons/bs";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-
+import "../../src/App.css";
 const Header = () => {
+  const [dark, setDark] = useState(false);
   const { logOut, user } = useContext(AuthContext);
   console.log(user);
   const handleLogOut = () => {
     logOut().then().catch();
+  };
+  const handleToggle = () => {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    setDark(!dark);
   };
   const navLinks = (
     <>
@@ -45,11 +52,14 @@ const Header = () => {
     </>
   );
   return (
-    <div className=" bg-red-700 ">
+    <div className=" bg-transparent ">
       <div className="navbar max-w-7xl  mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label
+              tabIndex={0}
+              className="btn btn-ghost text-gray-500 lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -72,11 +82,11 @@ const Header = () => {
               {navLinks}
             </ul>
           </div>
-          <a className=" flex items-center normal-case text-white text-2xl font-bold">
+          <a className=" flex items-center normal-case text-red-500 text-2xl font-bold">
             <span className="">
               <img src={pic} alt="" />
             </span>
-            Beat<span className="text-black">Speed</span>
+            Beat<span className="text-gray-700">Speed</span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -85,16 +95,16 @@ const Header = () => {
         <div className="navbar-end grid space-y-2 items-center content-center">
           <div>
             {user?.displayName ? (
-              <p className="text-black text-center">
-                Welcome, {user.displayName}
+              <p className="text-red-600 border-x-2 text-center">
+                User: {user.displayName}
               </p>
             ) : (
               ""
             )}
           </div>
-          <div className="justify-center space-x-3 items-center mx-auto flex">
+          <div className="justify-center  items-center mx-auto flex">
             <div className="avatar">
-              <div className="w-12 rounded-full">
+              <div className="w-8 rounded-full">
                 {/* <img src={icon} /> */}
                 {user?.photoURL ? (
                   <img src={user.photoURL} />
@@ -115,6 +125,13 @@ const Header = () => {
                 <a className="btn bg-black text-white">Sign In</a>
               </Link>
             )}
+            <button onClick={handleToggle}>
+              {dark ? (
+                <BsToggleOn className="text-4xl"></BsToggleOn>
+              ) : (
+                <BsToggleOff className="text-4xl"></BsToggleOff>
+              )}
+            </button>
           </div>
           {/* <Link to={"/login"}>
             <a className="btn bg-black text-white">Sign In</a>

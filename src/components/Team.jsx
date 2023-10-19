@@ -1,11 +1,11 @@
 const Team = () => {
   return (
     <div>
-      <div className="py-20 bg-gray-50">
+      <div className="py-20 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="container mx-auto">
             <div className="mb-16 text-center">
-              <h2 className="mb-4 text-center text-2xl text-gray-900 font-bold md:text-4xl">
+              <h2 className="mb-4 text-center text-2xl text-gray-400 font-bold md:text-4xl">
                 <span className="text-red-700"> Team</span> Beat Speed
               </h2>
               <p className="text-gray-600 lg:w-8/12 lg:mx-auto">
@@ -26,7 +26,7 @@ const Team = () => {
                   height="805"
                 />
                 <div>
-                  <h4 className="text-2xl">Chris Brown</h4>
+                  <h4 className="text-2xl text-gray-500">Chris Brown</h4>
                   <span className="block text-sm text-gray-500">
                     CEO-Founder
                   </span>
@@ -42,7 +42,7 @@ const Team = () => {
                   height="667"
                 />
                 <div>
-                  <h4 className="text-2xl">Muller Junior</h4>
+                  <h4 className="text-2xl text-gray-500">Muller Junior</h4>
                   <span className="block text-sm text-gray-500">
                     Chief Technical Officer
                   </span>
@@ -58,7 +58,7 @@ const Team = () => {
                   height="667"
                 />
                 <div>
-                  <h4 className="text-2xl">Xinyue</h4>
+                  <h4 className="text-2xl text-gray-500">Xinyue</h4>
                   <span className="block text-sm text-gray-500">
                     Chief Operations Officer
                   </span>

@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 
 const MyCart = () => {
   const { user } = useContext(AuthContext);
+  // const [total, setTotal] = useState(0);
+  // console.log(total);
   const userEmail = user.email;
   console.log(userEmail);
   const loadedCartData = useLoaderData();
@@ -14,6 +16,15 @@ const MyCart = () => {
   );
   const [cartData, setCartData] = useState(filteredCartData);
   // console.log(cartData);
+  // cartData.find((a) => {
+  //   return setTotal(parseInt(a.price) + total);
+  // console.log(total);
+  // });
+  let total = 0;
+  cartData.forEach((a) => {
+    total = total + parseInt(a.price);
+  });
+  console.log(total);
 
   const handleDelete = (_id) => {
     // console.log("clicked: ", _id);
@@ -31,9 +42,12 @@ const MyCart = () => {
         const remaining = cartData.filter((car) => car._id !== _id);
         setCartData(remaining);
 
-        fetch(`http://localhost:5000/cart/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://beat-speed-server-oneni1put-maruf-hossains-projects-1d89c107.vercel.app/cart/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -53,26 +67,44 @@ const MyCart = () => {
       <h2 className=" text-center text-3xl md:text-5xl font-semibold">
         Your Cart: {user.displayName}
       </h2>
-      <div className="grid p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {cartData.map((cartData, index) => (
-          <div key={index} className="card card-compact bg-base-100 shadow-xl">
-            <figure>
-              <img className="h-[300px]" src={cartData.image} alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{cartData.name}</h2>
-              <p> Price: ${cartData.price}</p>
+      <div className="flex flex-col lg:flex-row ">
+        <div className="grid lg:w-3/4 p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {cartData.map((cartData, index) => (
+            <div
+              key={index}
+              className="card card-compact bg-base-100 shadow-xl"
+            >
+              <figure>
+                <img className="h-[300px]" src={cartData.image} alt="Shoes" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{cartData.name}</h2>
+                <p> Price: ${cartData.price}</p>
+                <div className="card-actions justify-end">
+                  <button
+                    onClick={() => handleDelete(cartData._id)}
+                    className="btn bg-red-900 text-white"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="lg:w-1/3 h-full">
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body ">
+              <h2 className="text-3xl font-bold text-center">Checkout</h2>
+              <p>Price: {total}</p>
+              <p>Delivery Charge: </p>
+              <h2>Total Price: </h2>
               <div className="card-actions justify-end">
-                <button
-                  onClick={() => handleDelete(cartData._id)}
-                  className="btn bg-red-900 text-white"
-                >
-                  Delete
-                </button>
+                <button className="btn  bg-black text-white">Order Now</button>
               </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

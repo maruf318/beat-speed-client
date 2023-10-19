@@ -45,7 +45,10 @@ const router = createBrowserRouter([
             <Details></Details>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/car/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://beat-speed-server-oneni1put-maruf-hossains-projects-1d89c107.vercel.app/car/${params.id}`
+          ),
       },
       {
         path: "/update/:id",
@@ -54,7 +57,10 @@ const router = createBrowserRouter([
             <Update></Update>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/car/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://beat-speed-server-oneni1put-maruf-hossains-projects-1d89c107.vercel.app/car/${params.id}`
+          ),
       },
       {
         path: "/mycart",
@@ -63,12 +69,18 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/cart"),
+        loader: () =>
+          fetch(
+            "https://beat-speed-server-oneni1put-maruf-hossains-projects-1d89c107.vercel.app/cart"
+          ),
       },
       {
         path: "/brand/:brand_name",
         element: <Brand></Brand>,
-        loader: () => fetch("http://localhost:5000/cars"),
+        loader: ({ params }) =>
+          fetch(
+            `https://beat-speed-server-oneni1put-maruf-hossains-projects-1d89c107.vercel.app/brand/${params.brand_name}`
+          ),
       },
     ],
   },
