@@ -1,8 +1,21 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Details = () => {
+  const navigate = useNavigate(null);
+  const notifySuccess = () =>
+    toast.success("Added to cart Successfully", {
+      position: "top-center",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   const loadedCar = useLoaderData();
   // console.log(loadedCar.brand);
   const { user } = useContext(AuthContext);
@@ -26,7 +39,9 @@ const Details = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          alert("Added to cart");
+          // alert("Added to cart");
+          notifySuccess();
+          navigate(-1);
         }
       });
   };

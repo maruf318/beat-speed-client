@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 
 const AddProduct = () => {
   const notifySuccess = () =>
-    toast.success("Updated the Product Successfully", {
+    toast.success("Added the Product Successfully", {
       position: "top-center",
       autoClose: 1500,
       hideProgressBar: false,
