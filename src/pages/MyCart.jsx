@@ -6,7 +6,9 @@ import {
   FaApplePay,
   FaCcPaypal,
   FaGooglePay,
+  FaShoppingCart,
 } from "react-icons/fa";
+import { BsCarFront } from "react-icons/bs";
 
 import Swal from "sweetalert2";
 
@@ -94,6 +96,7 @@ const MyCart = () => {
                 <h2 className="card-title text-3xl font-bold ">
                   {cartData.name}
                 </h2>
+
                 <hr />
                 <p className="font-bold"> Price: ${cartData.price}</p>
                 <div className="card-actions justify-end">
@@ -101,7 +104,7 @@ const MyCart = () => {
                     onClick={() => handleDelete(cartData._id)}
                     className="btn bg-red-900 text-white"
                   >
-                    Delete
+                    Delete <BsCarFront></BsCarFront>
                   </button>
                 </div>
               </div>
@@ -111,8 +114,8 @@ const MyCart = () => {
         <div className="lg:w-1/3 h-full">
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body space-y-6 ">
-              <h2 className="text-4xl font-bold text-center underline">
-                Checkout
+              <h2 className="text-4xl flex justify-center items-center font-bold text-center underline">
+                Checkout <FaShoppingCart></FaShoppingCart>
               </h2>
               <p className="font-bold text-2xl">Price: ${total}</p>
               <p className="font-bold text-base">

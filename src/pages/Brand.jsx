@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import CarCard from "../components/CarCard";
+import "../../src/App.css";
 
 const Brand = () => {
   // const param = useParams();
@@ -88,6 +89,10 @@ const Brand = () => {
           <CarCard key={car._id} car={car}></CarCard>
         ))}
       </div>
+      {/* <div className="box">
+        <span></span>
+        <h2>Here</h2>
+      </div> */}
     </div>
   );
 };

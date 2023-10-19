@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
-
+import { BsCarFront } from "react-icons/bs";
 const Details = () => {
   const navigate = useNavigate(null);
   const notifySuccess = () =>
@@ -89,7 +89,7 @@ const Details = () => {
             onClick={handleCart}
             className="btn  btn-ghost bg-red-800 text-white w-full"
           >
-            Buy Now
+            Buy Now <BsCarFront></BsCarFront>
           </button>
         </div>
       </div>

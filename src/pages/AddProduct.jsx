@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const AddProduct = () => {
   const notifySuccess = () =>
@@ -215,9 +216,10 @@ const AddProduct = () => {
         </div>
         <button
           type="submit"
-          className="flex mx-auto text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-24 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="flex justify-center items-center mx-auto text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-24 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Add
+          <AiOutlinePlus></AiOutlinePlus> Add Product
+          <AiOutlinePlus></AiOutlinePlus>
         </button>
       </form>
       {/* <form className="card-body">
