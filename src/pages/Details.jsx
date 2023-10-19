@@ -44,7 +44,7 @@ const Details = () => {
         if (data.insertedId) {
           // alert("Added to cart");
           notifySuccess();
-          navigate(-1);
+          navigate("/");
         }
       });
   };
