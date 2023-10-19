@@ -20,11 +20,17 @@ const MyCart = () => {
   //   return setTotal(parseInt(a.price) + total);
   // console.log(total);
   // });
+  let delivery = 0;
   let total = 0;
   cartData.forEach((a) => {
     total = total + parseInt(a.price);
   });
-  console.log(total);
+
+  // console.log(total);
+  // let delivery = 0;
+  if (total > 1) {
+    delivery = 500;
+  }
 
   const handleDelete = (_id) => {
     // console.log("clicked: ", _id);
@@ -63,7 +69,7 @@ const MyCart = () => {
     });
   };
   return (
-    <div className="max-w-7xl mx-auto ">
+    <div className="max-w-7xl mx-auto  min-h-[80vh]">
       <h2 className=" text-center text-gray-500 underline my-10 text-3xl md:text-5xl font-semibold">
         Your Cart: {user.displayName}
       </h2>
@@ -97,8 +103,8 @@ const MyCart = () => {
             <div className="card-body ">
               <h2 className="text-3xl font-bold text-center">Checkout</h2>
               <p>Price: ${total}</p>
-              <p>Delivery Charge: $500</p>
-              <h2>Total Price: ${total + 500}</h2>
+              <p>Delivery Charge: {delivery}</p>
+              <h2>Total Price: ${total + delivery}</h2>
               <div className="card-actions mx-auto">
                 <button className="btn  bg-red-800 text-white">
                   Order Now

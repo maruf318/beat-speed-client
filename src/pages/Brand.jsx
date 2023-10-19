@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import CarCard from "../components/CarCard";
 
 const Brand = () => {
@@ -16,6 +16,7 @@ const Brand = () => {
   //   .then(result=>{
   //     console.log(result);
   //   })
+  console.log(loadedCars.length);
   return (
     <div className="min-h-[50vh] max-w-7xl mx-auto">
       <div className="p-2">
@@ -69,6 +70,19 @@ const Brand = () => {
       {/* <h2 className="text-3xl text-center font-bold my-10">
         Brand:{loadedCars.name}
       </h2> */}
+      {loadedCars.length ? (
+        ""
+      ) : (
+        <div>
+          <h2 className="text-center text-gray-500">
+            <span className="text-3xl">Sorry,</span> We do not have any products
+            of this brand. Please add{" "}
+            <Link to={"/addproduct"}>
+              <button className="btn bg-red-800 text-white">Add Product</button>
+            </Link>{" "}
+          </h2>
+        </div>
+      )}
       <div className="grid p-2 grid-cols-1 lg:grid-cols-2 gap-4">
         {loadedCars.map((car) => (
           <CarCard key={car._id} car={car}></CarCard>
