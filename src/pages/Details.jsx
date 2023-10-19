@@ -121,6 +121,7 @@ const Details = () => {
               <h1 className="text-4xl font-semibold leading-9 text-white text-center">
                 Don’t miss out!
               </h1>
+
               <p className="text-base leading-normal text-center text-white mt-6">
                 Subscribe to your newsletter to stay in the loop. Our newsletter
                 is sent once in <br />a week on every friday so subscribe to get
