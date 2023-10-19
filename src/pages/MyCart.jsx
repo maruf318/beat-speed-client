@@ -1,6 +1,13 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import {
+  FaAmazonPay,
+  FaApplePay,
+  FaCcPaypal,
+  FaGooglePay,
+} from "react-icons/fa";
+
 import Swal from "sweetalert2";
 
 const MyCart = () => {
@@ -84,8 +91,11 @@ const MyCart = () => {
                 <img className="h-[300px]" src={cartData.image} alt="Shoes" />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">{cartData.name}</h2>
-                <p> Price: ${cartData.price}</p>
+                <h2 className="card-title text-3xl font-bold ">
+                  {cartData.name}
+                </h2>
+                <hr />
+                <p className="font-bold"> Price: ${cartData.price}</p>
                 <div className="card-actions justify-end">
                   <button
                     onClick={() => handleDelete(cartData._id)}
@@ -100,16 +110,30 @@ const MyCart = () => {
         </div>
         <div className="lg:w-1/3 h-full">
           <div className="card bg-base-100 shadow-xl">
-            <div className="card-body ">
-              <h2 className="text-3xl font-bold text-center">Checkout</h2>
-              <p>Price: ${total}</p>
-              <p>Delivery Charge: {delivery}</p>
-              <h2>Total Price: ${total + delivery}</h2>
+            <div className="card-body space-y-6 ">
+              <h2 className="text-4xl font-bold text-center underline">
+                Checkout
+              </h2>
+              <p className="font-bold text-2xl">Price: ${total}</p>
+              <p className="font-bold text-base">
+                Delivery Charge: ${delivery}
+              </p>
+
+              <hr />
+              <h2 className="text-center text-3xl font-bold">
+                Total Price: ${total + delivery}
+              </h2>
+              <hr />
               <div className="card-actions mx-auto">
                 <button className="btn  bg-red-800 text-white">
                   Order Now
                 </button>
               </div>
+              <h2 className="  flex justify-center  gap-x-3 md:text-4xl text-3xl items-center">
+                <span className="text-sm font-semibold">Payment Partners:</span>{" "}
+                <FaGooglePay></FaGooglePay> <FaAmazonPay></FaAmazonPay>{" "}
+                <FaCcPaypal></FaCcPaypal> <FaApplePay></FaApplePay>{" "}
+              </h2>
             </div>
           </div>
         </div>
