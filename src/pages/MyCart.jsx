@@ -64,7 +64,7 @@ const MyCart = () => {
   };
   return (
     <div className="max-w-7xl mx-auto ">
-      <h2 className=" text-center text-3xl md:text-5xl font-semibold">
+      <h2 className=" text-center text-gray-500 underline my-10 text-3xl md:text-5xl font-semibold">
         Your Cart: {user.displayName}
       </h2>
       <div className="flex flex-col lg:flex-row ">
@@ -96,11 +96,13 @@ const MyCart = () => {
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body ">
               <h2 className="text-3xl font-bold text-center">Checkout</h2>
-              <p>Price: {total}</p>
-              <p>Delivery Charge: </p>
-              <h2>Total Price: </h2>
-              <div className="card-actions justify-end">
-                <button className="btn  bg-black text-white">Order Now</button>
+              <p>Price: ${total}</p>
+              <p>Delivery Charge: $500</p>
+              <h2>Total Price: ${total + 500}</h2>
+              <div className="card-actions mx-auto">
+                <button className="btn  bg-red-800 text-white">
+                  Order Now
+                </button>
               </div>
             </div>
           </div>

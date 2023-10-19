@@ -49,7 +49,7 @@ const Update = () => {
   };
   return (
     <div className="max-w-7xl mx-auto">
-      <h2 className="text-center text-3xl font-bold my-10">
+      <h2 className="text-center text-3xl text-gray-500 font-bold my-10">
         Update: {data.name}
       </h2>
       <div>
@@ -58,7 +58,7 @@ const Update = () => {
             <div>
               <label
                 // for="first_name"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
               >
                 Name
               </label>
@@ -75,7 +75,7 @@ const Update = () => {
             <div>
               <label
                 // for="last_name"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
               >
                 Brand Name
               </label>
@@ -96,7 +96,7 @@ const Update = () => {
             <div>
               <label
                 // for="image"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
               >
                 Image URL
               </label>
@@ -113,7 +113,7 @@ const Update = () => {
             <div>
               <label
                 // for="type"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
               >
                 Type
               </label>
@@ -149,7 +149,7 @@ const Update = () => {
           <div className="mb-6">
             <label
               // for="price"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
             >
               Price
             </label>
@@ -167,7 +167,7 @@ const Update = () => {
           <div className="mb-6">
             <label
               // for="rating"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
             >
               Rating Out of 5
             </label>
@@ -186,7 +186,7 @@ const Update = () => {
           <div className="mb-6">
             <label
               // for="Short Description"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
             >
               Short Description
             </label>
@@ -212,7 +212,7 @@ const Update = () => {
             </div>
             <label
               // for="remember"
-              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="ml-2 text-sm font-medium text-pink-600 dark:text-gray-300"
             >
               I agree with the{" "}
               <a

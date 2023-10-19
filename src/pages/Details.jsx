@@ -67,7 +67,7 @@ const Details = () => {
     <div className="max-w-7xl mx-auto">
       {/* <h2>Single Car details</h2> */}
       <h2
-        className="text-center font-semibold border-y-4 my-4 border-red-900
+        className="text-center font-semibold border-y-4 my-4 text-gray-500 border-red-900
       "
       >
         JUST GRAB AND GO
@@ -76,7 +76,7 @@ const Details = () => {
         <div className="flex-1  lg:h-full">
           <img className="lg:h-full" src={loadedCar.image} alt="" />
         </div>
-        <div className="flex-1 space-y-2 md:space-y-4">
+        <div className="flex-1 text-gray-500 space-y-2 md:space-y-4">
           <h2 className="text-5xl text-center font-extrabold">
             {loadedCar.brand}
           </h2>
@@ -93,12 +93,12 @@ const Details = () => {
           </button>
         </div>
       </div>
-      <h2 className="text-xl text-black">
+      <h2 className="text-xl text-gray-500">
         Description: {loadedCar.description}
       </h2>
 
       {/* newslater */}
-      <h2 className="mt-20 text-center text-3xl font-bold underline">
+      <h2 className="mt-20 text-gray-500 text-center text-3xl font-bold underline">
         Subscribe Us
       </h2>
 

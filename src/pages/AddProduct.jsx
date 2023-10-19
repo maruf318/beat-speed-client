@@ -52,14 +52,16 @@ const AddProduct = () => {
   };
   return (
     <div className="max-w-7xl mx-auto">
-      <h2 className="text-center text-5xl font-bold my-10">Add Product</h2>
+      <h2 className="text-center text-5xl text-gray-500  font-bold my-10">
+        Add Product
+      </h2>
 
       <form onSubmit={handleAdd} className="p-4">
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label
               // for="first_name"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-pink-600  dark:text-white"
             >
               Name
             </label>
@@ -75,7 +77,7 @@ const AddProduct = () => {
           <div>
             <label
               // for="last_name"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
             >
               Brand Name
             </label>
@@ -96,7 +98,7 @@ const AddProduct = () => {
           <div>
             <label
               // for="image"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
             >
               Image URL
             </label>
@@ -112,7 +114,7 @@ const AddProduct = () => {
           <div>
             <label
               // for="type"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
             >
               Type
             </label>
@@ -140,7 +142,7 @@ const AddProduct = () => {
         <div className="mb-6">
           <label
             // for="price"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
           >
             Price
           </label>
@@ -157,7 +159,7 @@ const AddProduct = () => {
         <div className="mb-6">
           <label
             // for="rating"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
           >
             Rating Out of 5
           </label>
@@ -175,7 +177,7 @@ const AddProduct = () => {
         <div className="mb-6">
           <label
             // for="Short Description"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-pink-600 dark:text-white"
           >
             Short Description
           </label>
@@ -200,16 +202,15 @@ const AddProduct = () => {
           </div>
           <label
             // for="remember"
-            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="ml-2 text-sm font-medium text-pink-600 dark:text-gray-300"
           >
             I agree with the{" "}
             <a
               href="#"
               className="text-blue-600 hover:underline dark:text-blue-500"
             >
-              terms and conditions
+              terms and conditions.
             </a>
-            .
           </label>
         </div>
         <button
