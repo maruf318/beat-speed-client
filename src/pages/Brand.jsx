@@ -79,7 +79,10 @@ const Brand = () => {
             <span className="text-3xl">Sorry,</span> We do not have any products
             of this brand. Please add{" "}
             <Link to={"/addproduct"}>
-              <button className="btn bg-red-800 text-white">Add Product</button>
+              <button style={{ "--clr": "#ff1867" }} className="buttonBody">
+                <span>Add Product</span> <i></i>
+              </button>
+              {/* <button className="btn bg-red-800 text-white">Add Product</button> */}
             </Link>{" "}
           </h2>
         </div>
@@ -89,10 +92,13 @@ const Brand = () => {
           <CarCard key={car._id} car={car}></CarCard>
         ))}
       </div>
-      {/* <div className="box">
+      {/* <div className="box mx-auto">
         <span></span>
-        <h2>Here</h2>
+        <h2>Extra Section</h2>
       </div> */}
+      {/* <button style={{ "--clr": "#ff1867" }} className="buttonBody">
+        <span>Button</span> <i></i>
+      </button> */}
     </div>
   );
 };

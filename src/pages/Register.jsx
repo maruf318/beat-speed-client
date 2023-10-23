@@ -98,9 +98,13 @@ const Register = () => {
 
   return (
     <div>
-      <h1 className="text-5xl font-bold text-center text-gray-500 md:my-10">
-        Register now!
-      </h1>
+      <div className="box mx-auto">
+        <span></span>
+        <h2 className="text-5xl font-bold text-center text-gray-500 md:my-10">
+          Register now!
+        </h2>
+      </div>
+
       <p className="py-6 text-center text-gray-500 md:my-4">
         Welcome! Register to continue your journey and access your personalized
         experience.
