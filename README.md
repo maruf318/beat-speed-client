@@ -1,6 +1,6 @@
 # Website Name: Beat Speed
 
-Website Link: [https://beat-speed-cf643.web.app/](https://elaborate-kelpie-ed5690.netlify.app/)
+Website Link: https://elaborate-kelpie-ed5690.netlify.app/
 
 Important Features:
 
